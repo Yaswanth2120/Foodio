@@ -29,12 +29,20 @@ const RecipeForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="title" placeholder="Title" onChange={handleChange} />
-      <textarea name="description" placeholder="Description" onChange={handleChange}></textarea>
-      <input type="text" name="ingredients" placeholder="Ingredients (comma separated)" onChange={handleChange} />
-      <textarea name="instructions" placeholder="Instructions (period separated)" onChange={handleChange}></textarea>
-      <button type="submit">Create Recipe</button>
+    <form onSubmit={handleSubmit} className="container mt-4">
+      <div className="mb-3">
+        <input type="text" name="title" className="form-control" placeholder="Title" onChange={handleChange} />
+      </div>
+      <div className="mb-3">
+        <textarea name="description" className="form-control" placeholder="Description" onChange={handleChange}></textarea>
+      </div>
+      <div className="mb-3">
+        <input type="text" name="ingredients" className="form-control" placeholder="Ingredients (comma separated)" onChange={handleChange} />
+      </div>
+      <div className="mb-3">
+        <textarea name="instructions" className="form-control" placeholder="Instructions (period separated)" onChange={handleChange}></textarea>
+      </div>
+      <button type="submit" className="btn btn-primary">Create Recipe</button>
     </form>
   );
 };

@@ -10,13 +10,10 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.username || !formData.email || !formData.password) {
-      alert('All fields are required!');
-      return;
-    }
     try {
       await axios.post('http://localhost:5001/auth/register', formData);
       alert('Registration successful');
+      window.location.href = '/login'; // Redirect to login page after successful registration
     } catch (error) {
       console.error(error);
       alert('Registration failed');
@@ -24,11 +21,18 @@ const Register = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="username" placeholder="Username" onChange={handleChange} />
-      <input type="email" name="email" placeholder="Email" onChange={handleChange} />
-      <input type="password" name="password" placeholder="Password" onChange={handleChange} />
-      <button type="submit">Register</button>
+    <form onSubmit={handleSubmit} className="container mt-4">
+      <div className="mb-3">
+        <input type="text" name="username" className="form-control" placeholder="Username" onChange={handleChange} />
+      </div>
+      <div className="mb-3">
+        <input type="email" name="email" className="form-control" placeholder="Email" onChange={handleChange} />
+      </div>
+      <div className="mb-3">
+        <input type="password" name="password" className="form-control" placeholder="Password" onChange={handleChange} />
+      </div>
+      <button type="submit" className="btn btn-primary">Register</button>
+      <p>Already have an account? <a href="/login">Log in here</a></p>
     </form>
   );
 };

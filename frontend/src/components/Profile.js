@@ -7,7 +7,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get('http://localhost:5001/auth/profile');
+        const response = await axios.get('http://localhost:5001/auth/profile'); // Ensure this endpoint exists
         setUser(response.data);
       } catch (error) {
         console.error(error);
@@ -20,7 +20,7 @@ const Profile = () => {
   if (!user) return <div>Loading...</div>;
 
   return (
-    <div>
+    <div className="container mt-4">
       <h1>Profile</h1>
       <p>Username: {user.username}</p>
       <p>Email: {user.email}</p>

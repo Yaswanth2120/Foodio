@@ -28,12 +28,12 @@ const RecipeList = () => {
   );
 
   return (
-    <div>
+    <div className="container mt-4">
       <h1>Recipes</h1>
-      <input type="text" placeholder="Search recipes..." onChange={handleSearch} />
-      <ul>
+      <input type="text" className="form-control mb-3" placeholder="Search recipes..." onChange={handleSearch} />
+      <ul className="list-group">
         {filteredRecipes.map((recipe) => (
-          <li key={recipe.id}>
+          <li key={recipe.id} className="list-group-item">
             <Link to={`/recipes/${recipe.id}`}>{recipe.title}</Link>
           </li>
         ))}
